@@ -74,14 +74,9 @@ public abstract class AbstractIntHopScotchCollection<VALUE> extends AbstractHopS
             if ( key != nullKey )
             {
                 long visitStart = System.nanoTime();
-                boolean visited = visitor.visited( (int) key );
+                visitor.visited( (int) key );
                 visitedRecords++;
                 visitorTotal += (System.nanoTime() - visitStart);
-                if ( visited )
-                {
-                    printStatistic( startTime, capacity, size, counter, keyLookupTotal, visitorTotal );
-                    return;
-                }
             }
         }
         System.out.println( "Loop counter is: " + counter );
